@@ -13,14 +13,18 @@ namespace Adesso.Controllers
     {
         private readonly ITravelService _travelService;
 
+        private readonly IRequestValidator _requestValidator;
+
         public TravelController(ITravelService travelService,IMapper mapper,IRequestValidator requestValidator)
         {
             _travelService = travelService;
+            _requestValidator = requestValidator;
         }
         // To add a user travel plan
         [HttpPost("/api/travels")]
         public async Task<IActionResult> AddTravel([FromBody] Travel travel)
         {
+            await _requestValidator.ValidateAddTravel(travel);
             // Add Travel
             return new JsonResult(await _travelService.AddTravel(travel));
         }
@@ -30,6 +34,7 @@ namespace Adesso.Controllers
         public async Task<IActionResult> UupdateTravelStatus(int id, bool isPublished)
         {
             // Update Travel
+             await _requestValidator.ValidateUpdateTravelStatus(id,isPublished);
             return new JsonResult(await _travelService.UpdateTravelStatus(id,isPublished));
         }
 
@@ -38,6 +43,7 @@ namespace Adesso.Controllers
         public async Task<IActionResult> SearchTravels(string from, string to)
         {
             // Search Travels
+            await _requestValidator.ValidateSearchTravels(from,to);
             return new JsonResult(await _travelService.SearchTravels(from,to));
         }
 
@@ -45,9 +51,8 @@ namespace Adesso.Controllers
         [HttpPost("/api/travels/join")]
         public async Task<IActionResult> RequestToJoinTravel(int id, int seatCount)
         {
-            // Katılım isteği gönderme işlemleri
-            await _travelService.RequestToJoinTravel(id, seatCount);
-            return new JsonResult(true);
+            await _requestValidator.ValidateRequestToJoinTravel(id,seatCount);
+            return new JsonResult(await _travelService.RequestToJoinTravel(id, seatCount));
         }
     }
 }
