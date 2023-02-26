@@ -1,6 +1,7 @@
 ﻿using Adesso.Data.IRepositories;
 using Adesso.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 namespace Adesso.Data
