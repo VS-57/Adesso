@@ -21,7 +21,7 @@ namespace Adesso.Controllers
             _requestValidator = requestValidator;
         }
         // To add a user travel plan
-        [HttpPost("/api/travels")]
+        [HttpPost("/api/travel")]
         public async Task<IActionResult> AddTravel([FromBody] Travel travel)
         {
             await _requestValidator.ValidateAddTravel(travel);

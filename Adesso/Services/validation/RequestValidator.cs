@@ -19,8 +19,8 @@ namespace Adesso.Services.validation
 
         public Task<bool> ValidateRequestToJoinTravel(int travelId, int requestedSeats)
         {
-            IdNullCheck(travelId);
-            RequestedNullCheck(requestedSeats);
+            IdCheck(travelId);
+            RequestedSeatNullCheck(requestedSeats);
             return Task.FromResult(true);
         }
 
@@ -32,7 +32,7 @@ namespace Adesso.Services.validation
 
         public Task<bool> ValidateUpdateTravelStatus(int travelId, bool isPublished)
         {
-            IdNullCheck(travelId);
+            IdCheck(travelId);
             return Task.FromResult(true);
         }
 
@@ -44,6 +44,14 @@ namespace Adesso.Services.validation
             }
         }
 
+        private static void IdCheck(int newTravelId)
+        {
+            if (newTravelId == 0)
+            {
+                throw new Exception("Id Must Not Be Null");
+            }
+        }
+
         private static void IdNullCheck(int newTravelId)
         {
             if (newTravelId != 0)
@@ -51,9 +59,9 @@ namespace Adesso.Services.validation
                 throw new Exception("Id Must Be Null");
             }
         }
-        private static void RequestedNullCheck(int newTravelId)
+        private static void RequestedSeatNullCheck(int newTravelId)
         {
-            if (newTravelId != 0)
+            if (newTravelId < 1)
             {
                 throw new Exception("Id Must Be Null");
             }
