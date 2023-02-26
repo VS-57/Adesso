@@ -49,11 +49,11 @@ namespace Adesso.Services
             return ResponseDto<TravelDto>.Succes((int)HttpStatusCode.OK,_mapper.Map<TravelDto>(travel));
         }
 
-        public async Task<List<TravelDto>> SearchTravels(string from, string to)
+        public async Task<ResponseDto<List<TravelDto>>> SearchTravels(string from, string to)
         {
             var travel = await _travelRepository.SearchTravels(from, to);
 
-            return _mapper.Map<List<TravelDto>>(travel);
+            return ResponseDto<TravelDto>.ListResponse((int)HttpStatusCode.OK,_mapper.Map<List<TravelDto>>(travel));
         }
 
         public async Task RequestToJoinTravel(int travelId, int requestedSeats)

@@ -40,6 +40,16 @@ namespace Adesso.DTOs
                 Data = data
             };
         }
+        public static ResponseDto<T> Succes(int statusCode, T? data = null)
+        {
+            return new DTOs.ResponseDto<T>
+            {
+                IsSuccess = true,
+                ErrorMessage = "",
+                StatusCode = statusCode,
+                Data = data
+            };
+        }
         public static ResponseDto<List<T>> ListResponse(int statusCode, List<T> data)
         {
             return new DTOs.ResponseDto<List<T>>
