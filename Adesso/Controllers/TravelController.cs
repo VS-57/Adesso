@@ -30,7 +30,7 @@ namespace Adesso.Controllers
         }
 
         // To publish or unpublish a user travel plan
-        [HttpPut("/api/travels/{id}")]
+        [HttpPut("/api/travel/{id}")]
         public async Task<IActionResult> UupdateTravelStatus(int id, bool isPublished)
         {
             // Update Travel
@@ -48,7 +48,7 @@ namespace Adesso.Controllers
         }
 
         // To send a participation request to a published travel plan for users.
-        [HttpPost("/api/travels/join")]
+        [HttpPost("/api/travel/join")]
         public async Task<IActionResult> RequestToJoinTravel(int id, int seatCount)
         {
             await _requestValidator.ValidateRequestToJoinTravel(id,seatCount);
