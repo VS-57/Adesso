@@ -1,13 +1,13 @@
 ﻿using System;
 namespace Adesso.Data.IRepositories
 {
-	public interface IGenericRepository<TEntity> where TEntity: class
+	public interface IGenericRepository<T> where T: class
 	{
-		IQueryable<TEntity> GetAll();
-		Task<TEntity> GetById(int id);
-		Task Create(TEntity entity);
-        Task Update(TEntity entity);
-		Task Delete(TEntity entity);
+		IQueryable<T> GetAll();
+		Task<T> GetById(int id);
+		Task Create(T entity);
+        void Update(T entity);
+		Task Delete(T entity);
     }
 }
 

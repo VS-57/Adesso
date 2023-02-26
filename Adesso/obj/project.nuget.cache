@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "IISbZXmFDiwYHiUV17Z4SX3V7RaexpgccRbAtFCwPsMwTR/+HXdXnRou+55pLtNTI2sz5MkX8bs0530YsENqSQ==",
+  "dgSpecHash": "yL7SL09wQxx3T8Wwv6r0K2vnKKHh5uRk9iipool6Mol4gMpwqFm3Nj0ZxpbuLHLpG5G25VauiZHFaoFft+tUQA==",
   "success": true,
   "projectFilePath": "/Users/osmancengeri/Documents/GitHub/Adesso/Adesso/Adesso.csproj",
   "expectedPackageFiles": [
+    "/Users/osmancengeri/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/Users/osmancengeri/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
+    "/Users/osmancengeri/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/osmancengeri/.nuget/packages/microsoft.entityframeworkcore/7.0.3/microsoft.entityframeworkcore.7.0.3.nupkg.sha512",
     "/Users/osmancengeri/.nuget/packages/microsoft.entityframeworkcore.abstractions/7.0.3/microsoft.entityframeworkcore.abstractions.7.0.3.nupkg.sha512",
     "/Users/osmancengeri/.nuget/packages/microsoft.entityframeworkcore.analyzers/7.0.3/microsoft.entityframeworkcore.analyzers.7.0.3.nupkg.sha512",

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Adesso.Data
 {
-	public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity:class
+	public class GenericRepository<T> : IGenericRepository<T> where T:class
 	{
         private readonly MyDbContext dbContext;
 		public GenericRepository(MyDbContext _dbContext)
@@ -12,31 +12,31 @@ namespace Adesso.Data
             dbContext = _dbContext;
 		}
 
-        public async Task Create(TEntity entity)
+        public async Task Create(T entity)
         {
-            await dbContext.Set<TEntity>().AddAsync(entity);
+            await dbContext.Set<T>().AddAsync(entity);
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task Delete(TEntity entity)
+        public async Task Delete(T entity)
         {
-            dbContext.Set<TEntity>().Remove(entity);
+            dbContext.Set<T>().Remove(entity);
             await dbContext.SaveChangesAsync();
         }
 
-        public IQueryable<TEntity> GetAll()
+        public IQueryable<T> GetAll()
         {
-            return dbContext.Set<TEntity>().AsNoTracking();
+            return dbContext.Set<T>().AsNoTracking();
         }
 
-        public Task<TEntity> GetById(int id)
-        {
-            return dbContext.Set<TEntity>().AsNoTracking().FirstOrDefault(x => x.Id == id);
+        public Task<T> GetById(int id)
+        {       
+            return dbContext.Set<T>().FindAsync(id).AsTask();
         }
 
-        public Task Update(TEntity entity)
+        public void Update(T entity)
         {
-             dbContext.Set<TEntity>().Update(entity);
+             dbContext.Set<T>().Update(entity);
              dbContext.SaveChanges();
         }
     }

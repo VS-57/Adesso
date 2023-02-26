@@ -3,19 +3,21 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Adesso.Services;
 using System.Diagnostics;
+using AutoMapper;
 
 namespace Adesso.Controllers
 {
     public class TravelController : Controller
     {
         private readonly ITravelService _travelService;
-        public TravelController(ITravelService travelService)
+
+        public TravelController(ITravelService travelService,IMapper mapper)
         {
             _travelService = travelService;
         }
         // To add a user travel plan
         [HttpPost("/api/travels")]
-        public async Task<IActionResult> AddTravel(Travel travel)
+        public async Task<IActionResult> AddTravel([FromBody] Travel travel)
         {
             // Add Travel
             return new JsonResult(await _travelService.AddTravel(travel));

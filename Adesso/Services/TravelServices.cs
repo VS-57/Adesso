@@ -1,5 +1,8 @@
 ﻿using Adesso.Data.IRepositories;
 using Adesso.Models;
+using Adesso.DTOs;
+using AutoMapper;
+using System.Diagnostics;
 
 namespace Adesso.Services
 {
@@ -7,13 +10,15 @@ namespace Adesso.Services
 
     {
         private readonly ITravelRepository _travelRepository;
+        private readonly IMapper _mapper;
 
-        public TravelService(ITravelRepository travelRepository)
+        public TravelService(ITravelRepository travelRepository,IMapper mapper)
         {
             _travelRepository = travelRepository;
+            _mapper = mapper;
         }
 
-        public async Task<Travel> AddTravel(Travel newTravel)
+        public async Task<TravelDto> AddTravel(Travel newTravel)
         {
             if (newTravel == null)
             {
@@ -24,10 +29,10 @@ namespace Adesso.Services
 
             await _travelRepository.Create(newTravel);
 
-            return newTravel;
+            return _mapper.Map<TravelDto>(newTravel);
         }
 
-        public async Task<Travel> UpdateTravelStatus(int travelId, bool isPublished)
+        public async Task<TravelDto> UpdateTravelStatus(int travelId, bool isPublished)
         {
             var travel = await _travelRepository.GetById(travelId);
 
@@ -38,16 +43,16 @@ namespace Adesso.Services
 
             travel.isPublished = isPublished;
 
-            await _travelRepository.Update(travel);
+             _travelRepository.Update(travel);
 
-            return travel;
+            return _mapper.Map<TravelDto>(travel);
         }
 
-        public async Task<List<Travel>> SearchTravels(string from, string to)
+        public async Task<List<TravelDto>> SearchTravels(string from, string to)
         {
-            var travels = await _travelRepository.SearchTravels(from, to);
+            var travel = await _travelRepository.SearchTravels(from, to);
 
-            return travels;
+            return _mapper.Map<List<TravelDto>>(travel);
         }
 
         public async Task RequestToJoinTravel(int travelId, int requestedSeats)
@@ -67,7 +72,7 @@ namespace Adesso.Services
             // Update available seats count
             travel.AvailableSeats -= requestedSeats;
 
-            await _travelRepository.Update(travel);
+            _travelRepository.Update(travel);
         }
     }
 }
