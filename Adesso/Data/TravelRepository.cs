@@ -31,7 +31,7 @@ namespace Adesso.Data
         public async Task<List<Travel>> SearchTravels(string from, string to)
         {
             var travels = await _context.Travels
-                .Where(t => t.From == from && t.To == to && t.IsPublished == true)
+                .Where(t => t.From == from && t.Destination == to && t.isPublished == true)
                 .ToListAsync();
 
             return travels;
@@ -45,12 +45,4 @@ namespace Adesso.Data
         }
     }
 
-    public class MyDbContext : DbContext
-    {
-        public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
-        {
-        }
-
-        public DbSet<Travel> Travels { get; set; }
-    }
 }

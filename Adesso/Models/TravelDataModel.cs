@@ -9,6 +9,7 @@
         public int Description { get; set; }
         public bool isPublished { get; set; }
         public int SeatCount { get; set; }
+        public int AvailableSeats { get; set; }
 
     }
 }
