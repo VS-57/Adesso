@@ -20,11 +20,13 @@
     <None Remove="MapProfiles\" />
     <None Remove="Middlewares\" />
     <None Remove="DTOs\Exceptions\" />
+    <None Remove="Services\validation\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTOs\" />
     <Folder Include="MapProfiles\" />
     <Folder Include="Middlewares\" />
     <Folder Include="DTOs\Exceptions\" />
+    <Folder Include="Services\validation\" />
   </ItemGroup>
 </Project>

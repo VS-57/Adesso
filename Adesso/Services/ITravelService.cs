@@ -8,7 +8,7 @@ namespace Adesso.Services
         Task<ResponseDto<TravelDto>> AddTravel(Travel newTravel);
         Task<ResponseDto<TravelDto>> UpdateTravelStatus(int travelId, bool isPublished);
         Task<ResponseDto<List<TravelDto>>> SearchTravels(string from, string to);
-        Task RequestToJoinTravel(int travelId, int requestedSeats);
+        Task<ResponseDto<TravelDto>> RequestToJoinTravel(int travelId, int requestedSeats);
     }
 }
 

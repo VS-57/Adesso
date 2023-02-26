@@ -25,6 +25,9 @@ namespace Adesso.Services
             {
                 throw new ArgumentNullException(nameof(newTravel));
             }
+            if (newTravel.From == newTravel.Destination) {
+                throw new Exception("Directions can't be same ");
+            }
 
             newTravel.isPublished = false; // Travels are not published by default
 
@@ -56,7 +59,7 @@ namespace Adesso.Services
             return ResponseDto<TravelDto>.ListResponse((int)HttpStatusCode.OK,_mapper.Map<List<TravelDto>>(travel));
         }
 
-        public async Task RequestToJoinTravel(int travelId, int requestedSeats)
+        public async Task<ResponseDto<TravelDto>> RequestToJoinTravel(int travelId, int requestedSeats)
         {
             var travel = await _travelRepository.GetById(travelId);
 
@@ -74,6 +77,8 @@ namespace Adesso.Services
             travel.AvailableSeats -= requestedSeats;
 
             _travelRepository.Update(travel);
+
+            return ResponseDto<TravelDto>.Succes((int)HttpStatusCode.OK, _mapper.Map<TravelDto>(travel));
         }
     }
 }

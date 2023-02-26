@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Adesso.Services;
+using Adesso.Services.validation;
+
 using System.Diagnostics;
 using AutoMapper;
 
@@ -11,7 +13,7 @@ namespace Adesso.Controllers
     {
         private readonly ITravelService _travelService;
 
-        public TravelController(ITravelService travelService,IMapper mapper)
+        public TravelController(ITravelService travelService,IMapper mapper,IRequestValidator requestValidator)
         {
             _travelService = travelService;
         }
