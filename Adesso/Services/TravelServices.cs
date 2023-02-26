@@ -1,0 +1,72 @@
+﻿using Adesso.Data.IRepositories;
+using Adesso.Models;
+
+namespace Adesso.Services
+{
+    public class TravelService
+    {
+        private readonly ITravelRepository _travelRepository;
+
+        public TravelService(ITravelRepository travelRepository)
+        {
+            _travelRepository = travelRepository;
+        }
+
+        public async Task<Travel> AddTravel(Travel newTravel)
+        {
+            if (newTravel == null)
+            {
+                throw new ArgumentNullException(nameof(newTravel));
+            }
+
+            newTravel.isPublished = false; // Travels are not published by default
+
+            var addedTravel = await _travelRepository.AddTravel(newTravel);
+
+            return addedTravel;
+        }
+
+        public async Task<Travel> UpdateTravelStatus(int travelId, bool isPublished)
+        {
+            var travel = await _travelRepository.GetTravelById(travelId);
+
+            if (travel == null)
+            {
+                throw new Exception("The specified travel could not be found");
+            }
+
+            travel.isPublished = isPublished;
+
+            await _travelRepository.UpdateTravel(travel);
+
+            return travel;
+        }
+
+        public async Task<List<Travel>> SearchTravels(string from, string to)
+        {
+            var travels = await _travelRepository.SearchTravels(from, to);
+
+            return travels;
+        }
+
+        public async Task RequestToJoinTravel(int travelId, int requestedSeats)
+        {
+            var travel = await _travelRepository.GetTravelById(travelId);
+
+            if (travel == null)
+            {
+                throw new Exception("The specified travel could not be found");
+            }
+
+            if (travel.AvailableSeats < requestedSeats)
+            {
+                throw new Exception("The requested seat count is greater than the available seats");
+            }
+
+            // Update available seats count
+            travel.AvailableSeats -= requestedSeats;
+
+            await _travelRepository.UpdateTravel(travel);
+        }
+    }
+}
