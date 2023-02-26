@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "0919022e-614b-4bba-a041-3b58c5cba7b3",
+		"name": "Adesso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20536787"
+	},
+	"item": [
+		{
+			"name": "Add Travel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"from\": \"cankırı\",\n  \"destination\": \"istanbul\",\n  \"date\": \"2023-02-26T16:19:51.382Z\",\n  \"description\": \"string\",\n  \"isPublished\": true,\n  \"seatCount\": 10,\n  \"availableSeats\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7275/api/travel",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7275",
+					"path": [
+						"api",
+						"travel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Travel Status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "isPublished",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:7275/api/travel/update",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7275",
+					"path": [
+						"api",
+						"travel",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Travels",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "from",
+							"value": "istanbul",
+							"type": "text"
+						},
+						{
+							"key": "to",
+							"value": "cankırı",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:7275/api/travels",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7275",
+					"path": [
+						"api",
+						"travels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join Request To Travel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "seatCount",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:7275/api/travel/join",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7275",
+					"path": [
+						"api",
+						"travel",
+						"join"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
