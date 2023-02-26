@@ -30,7 +30,7 @@ namespace Adesso.Services
             }
 
             newTravel.isPublished = false; // Travels are not published by default
-
+            newTravel.AvailableSeats = newTravel.SeatCount;
             await _travelRepository.Create(newTravel);
 
             return ResponseDto<TravelDto>.Create(_mapper.Map<TravelDto>(newTravel));

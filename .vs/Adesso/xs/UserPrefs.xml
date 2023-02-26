@@ -1,27 +1,32 @@
 ﻿<Properties StartupConfiguration="{7C6A3AF3-7373-4301-80EC-7110F863DAB5}|Default">
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/osmancengeri/Documents/GitHub/Adesso/Adesso/Controllers/TravelController.cs" relfile="Adesso/Controllers/TravelController.cs" line="27" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Adesso PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Adesso/Services/TravelServices.cs">
     <Files>
-      <File FileName="Adesso/Controllers/TravelController.cs" Line="25" Column="1" />
-      <File FileName="Adesso/Data/IRepositories/ITravelRepository.cs" Line="7" Column="66" />
+      <File FileName="Adesso/Controllers/TravelController.cs" Line="27" Column="1" />
+      <File FileName="Adesso/Data/IRepositories/ITravelRepository.cs" />
       <File FileName="Adesso/Data/MyDbContext.cs" Line="1" Column="1" />
-      <File FileName="Adesso/Data/TravelRepository.cs" Line="17" Column="1" />
-      <File FileName="Adesso/Models/TravelDataModel.cs" Line="12" Column="48" />
-      <File FileName="Adesso/Services/ITravelService.cs" Line="15" Column="1" />
-      <File FileName="Adesso/Services/TravelServices.cs" Line="71" Column="14" />
-      <File FileName="Adesso/Data/IRepositories/IRepository.cs" Line="13" Column="1" />
-      <File FileName="Adesso/Data/GenericRepository.cs" Line="13" Column="4" />
-      <File FileName="Adesso/DTOs/TravelDto.cs" Line="8" Column="29" />
-      <File FileName="Adesso/Program.cs" Line="15" Column="27" />
-      <File FileName="Adesso/MapProfiles/TravelProfile.cs" Line="15" Column="1" />
-      <File FileName="Adesso/Middlewares/UseCustomExceptionHandler.cs" Line="36" Column="16" />
-      <File FileName="Adesso/DTOs/NoDataDto.cs" Line="1" Column="1" />
-      <File FileName="Adesso/DTOs/Exceptions/ClientFaultException.cs" Line="4" Column="47" />
-      <File FileName="Adesso/DTOs/ResponseDto.cs" Line="44" Column="10" />
+      <File FileName="Adesso/Data/TravelRepository.cs" Line="15" Column="13" />
+      <File FileName="Adesso/Models/TravelDataModel.cs" Line="5" Column="22" />
+      <File FileName="Adesso/Services/ITravelService.cs" Line="8" Column="1" />
+      <File FileName="Adesso/Services/TravelServices.cs" Line="35" Column="1" />
+      <File FileName="Adesso/Data/GenericRepository.cs" Line="19" Column="1" />
+      <File FileName="Adesso/DTOs/TravelDto.cs" Line="10" Column="22" />
+      <File FileName="Adesso/Program.cs" Line="18" Column="67" />
+      <File FileName="Adesso/MapProfiles/TravelProfile.cs" Line="9" Column="25" />
+      <File FileName="Adesso/Middlewares/UseCustomExceptionHandler.cs" Line="31" Column="33" />
+      <File FileName="Adesso/DTOs/NoDataDto.cs" />
+      <File FileName="Adesso/DTOs/Exceptions/ClientFaultException.cs" />
+      <File FileName="Adesso/DTOs/ResponseDto.cs" Line="8" Column="44" />
+      <File FileName="Adesso/appsettings.json" Line="1" Column="1" />
+      <File FileName="Adesso/Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="Adesso/Services/validation/IRequestValidator.cs" Line="9" Column="23" />
+      <File FileName="Adesso/Services/validation/RequestValidator.cs" Line="14" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -30,7 +35,9 @@
             <Node name="Adesso" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="Data" expanded="True" />
+              <Node name="Data" expanded="True">
+                <Node name="IRepositories" expanded="True" />
+              </Node>
               <Node name="DTOs" expanded="True">
                 <Node name="Exceptions" expanded="True" />
               </Node>
@@ -38,7 +45,10 @@
               <Node name="Middlewares" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
-              <Node name="Services" expanded="True" />
+              <Node name="Services" expanded="True">
+                <Node name="validation" expanded="True" />
+                <Node name="TravelServices.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
