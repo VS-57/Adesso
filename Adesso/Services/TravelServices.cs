@@ -22,14 +22,14 @@ namespace Adesso.Services
 
             newTravel.isPublished = false; // Travels are not published by default
 
-            var addedTravel = await _travelRepository.AddTravel(newTravel);
+            await _travelRepository.Create(newTravel);
 
-            return addedTravel;
+            return newTravel;
         }
 
         public async Task<Travel> UpdateTravelStatus(int travelId, bool isPublished)
         {
-            var travel = await _travelRepository.GetTravelById(travelId);
+            var travel = await _travelRepository.GetById(travelId);
 
             if (travel == null)
             {
@@ -38,7 +38,7 @@ namespace Adesso.Services
 
             travel.isPublished = isPublished;
 
-            await _travelRepository.UpdateTravel(travel);
+            await _travelRepository.Update(travel);
 
             return travel;
         }
@@ -52,7 +52,7 @@ namespace Adesso.Services
 
         public async Task RequestToJoinTravel(int travelId, int requestedSeats)
         {
-            var travel = await _travelRepository.GetTravelById(travelId);
+            var travel = await _travelRepository.GetById(travelId);
 
             if (travel == null)
             {
@@ -67,7 +67,7 @@ namespace Adesso.Services
             // Update available seats count
             travel.AvailableSeats -= requestedSeats;
 
-            await _travelRepository.UpdateTravel(travel);
+            await _travelRepository.Update(travel);
         }
     }
 }
