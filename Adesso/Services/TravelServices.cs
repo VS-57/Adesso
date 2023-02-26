@@ -3,6 +3,7 @@ using Adesso.Models;
 using Adesso.DTOs;
 using AutoMapper;
 using System.Diagnostics;
+using System.Net;
 
 namespace Adesso.Services
 {
@@ -18,7 +19,7 @@ namespace Adesso.Services
             _mapper = mapper;
         }
 
-        public async Task<TravelDto> AddTravel(Travel newTravel)
+        public async Task<ResponseDto<TravelDto>> AddTravel(Travel newTravel)
         {
             if (newTravel == null)
             {
@@ -29,10 +30,10 @@ namespace Adesso.Services
 
             await _travelRepository.Create(newTravel);
 
-            return _mapper.Map<TravelDto>(newTravel);
+            return ResponseDto<TravelDto>.Create(_mapper.Map<TravelDto>(newTravel));
         }
 
-        public async Task<TravelDto> UpdateTravelStatus(int travelId, bool isPublished)
+        public async Task<ResponseDto<TravelDto>> UpdateTravelStatus(int travelId, bool isPublished)
         {
             var travel = await _travelRepository.GetById(travelId);
 
@@ -45,7 +46,7 @@ namespace Adesso.Services
 
              _travelRepository.Update(travel);
 
-            return _mapper.Map<TravelDto>(travel);
+            return ResponseDto<TravelDto>.Succes((int)HttpStatusCode.OK,_mapper.Map<TravelDto>(travel));
         }
 
         public async Task<List<TravelDto>> SearchTravels(string from, string to)

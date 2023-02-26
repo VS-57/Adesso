@@ -18,9 +18,13 @@
     <None Remove="AutoMapper" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="MapProfiles\" />
+    <None Remove="Middlewares\" />
+    <None Remove="DTOs\Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTOs\" />
     <Folder Include="MapProfiles\" />
+    <Folder Include="Middlewares\" />
+    <Folder Include="DTOs\Exceptions\" />
   </ItemGroup>
 </Project>
