@@ -59,11 +59,11 @@ namespace Adesso.Services.validation
                 throw new Exception("Id Must Be Null");
             }
         }
-        private static void RequestedSeatNullCheck(int newTravelId)
+        private static void RequestedSeatNullCheck(int requestedSeatCount)
         {
-            if (newTravelId < 1)
+            if (requestedSeatCount < 1)
             {
-                throw new Exception("Id Must Be Null");
+                throw new Exception("Requested seat count must be bigger than 0");
             }
         }
 
