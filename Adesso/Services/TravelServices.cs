@@ -23,10 +23,10 @@ namespace Adesso.Services
         {
             if (newTravel == null)
             {
-                throw new ArgumentNullException(nameof(newTravel));
+                return ResponseDto<TravelDto>.Fail((int)HttpStatusCode.BadRequest,"Object must not be null");
             }
             if (newTravel.From == newTravel.Destination) {
-                throw new Exception("Directions can't be same ");
+                return ResponseDto<TravelDto>.Fail((int)HttpStatusCode.BadRequest, "Destination point must be different");
             }
 
             newTravel.isPublished = false; // Travels are not published by default
@@ -42,7 +42,7 @@ namespace Adesso.Services
 
             if (travel == null)
             {
-                throw new Exception("The specified travel could not be found");
+                return ResponseDto<TravelDto>.Fail((int)HttpStatusCode.BadRequest, "The specified travel could not be found");
             }
 
             travel.isPublished = isPublished;
@@ -65,12 +65,13 @@ namespace Adesso.Services
 
             if (travel == null)
             {
-                throw new Exception("The specified travel could not be found");
+                return ResponseDto<TravelDto>.Fail((int)HttpStatusCode.BadRequest, "Object must not be null");
+
             }
 
             if (travel.AvailableSeats < requestedSeats)
             {
-                throw new Exception("The requested seat count is greater than the available seats");
+                return ResponseDto<TravelDto>.Fail((int)HttpStatusCode.BadRequest, "The requested seat count is greater than the available seats");
             }
 
             // Update available seats count

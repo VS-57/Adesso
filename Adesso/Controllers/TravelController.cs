@@ -30,7 +30,7 @@ namespace Adesso.Controllers
         }
 
         // To publish or unpublish a user travel plan
-        [HttpPut("/api/travel/{id}")]
+        [HttpPut("/api/travel/update")]
         public async Task<IActionResult> UupdateTravelStatus(int id, bool isPublished)
         {
             // Update Travel

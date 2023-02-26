@@ -20,9 +20,9 @@ namespace Adesso.DTOs
             };
         }
 
-        public static ResponseDto<object> Fail(int statusCode, string errorMessage)
+        public static ResponseDto<T> Fail(int statusCode, string errorMessage)
         {
-            return new DTOs.ResponseDto<object>
+            return new DTOs.ResponseDto<T>
             {
                 IsSuccess = false,
                 ErrorMessage = errorMessage,

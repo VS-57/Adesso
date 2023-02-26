@@ -13,6 +13,35 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
+					"raw": "{\n  \"from\": \"istanbul\",\n  \"destination\": \"cankırı\",\n  \"date\": \"2023-02-26T16:19:51.382Z\",\n  \"description\": \"string\",\n  \"isPublished\": true,\n  \"seatCount\": 10,\n  \"availableSeats\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7275/api/travel",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7275",
+					"path": [
+						"api",
+						"travel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Travel Error Case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
 					"raw": "{\n  \"from\": \"cankırı\",\n  \"destination\": \"istanbul\",\n  \"date\": \"2023-02-26T16:19:51.382Z\",\n  \"description\": \"string\",\n  \"isPublished\": true,\n  \"seatCount\": 10,\n  \"availableSeats\": 0\n}",
 					"options": {
 						"raw": {
@@ -125,6 +154,42 @@
 						{
 							"key": "seatCount",
 							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://localhost:7275/api/travel/join",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7275",
+					"path": [
+						"api",
+						"travel",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join Request To Travel Error Case",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "seatCount",
+							"value": "10",
 							"type": "text"
 						}
 					]
