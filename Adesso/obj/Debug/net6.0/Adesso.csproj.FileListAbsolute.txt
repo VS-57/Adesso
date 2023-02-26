@@ -1,0 +1,7 @@
+/Users/osmancengeri/Documents/GitHub/Adesso/Adesso/obj/Debug/net6.0/Adesso.csproj.AssemblyReference.cache
+/Users/osmancengeri/Documents/GitHub/Adesso/Adesso/obj/Debug/net6.0/Adesso.GeneratedMSBuildEditorConfig.editorconfig
+/Users/osmancengeri/Documents/GitHub/Adesso/Adesso/obj/Debug/net6.0/Adesso.AssemblyInfoInputs.cache
+/Users/osmancengeri/Documents/GitHub/Adesso/Adesso/obj/Debug/net6.0/Adesso.AssemblyInfo.cs
+/Users/osmancengeri/Documents/GitHub/Adesso/Adesso/obj/Debug/net6.0/Adesso.csproj.CoreCompileInputs.cache
+/Users/osmancengeri/Documents/GitHub/Adesso/Adesso/obj/Debug/net6.0/Adesso.MvcApplicationPartsAssemblyInfo.cs
+/Users/osmancengeri/Documents/GitHub/Adesso/Adesso/obj/Debug/net6.0/Adesso.MvcApplicationPartsAssemblyInfo.cache

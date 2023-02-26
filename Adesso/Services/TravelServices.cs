@@ -3,7 +3,8 @@ using Adesso.Models;
 
 namespace Adesso.Services
 {
-    public class TravelService
+    public class TravelService : ITravelService
+
     {
         private readonly ITravelRepository _travelRepository;
 
